@@ -1,0 +1,35 @@
+public class InsertionSort{
+    //插入排序的基本实现
+    public static void insertionSort(int[] array){
+        if (array == null || array.length < 2){
+            return;
+        }
+        //假定第一项是有序的  从第二项开始进行插入排序
+        for (int i = 1; i < array.length; i++){
+            int cur = array[i]; //当前待排序元素
+            //判断当前的待排序元素是否为最小的
+            boolean flag = true;
+            for (int j = i - 1; j >= 0; j--){
+                //倒序遍历有序数组 并将大于cur的元素向后移 直到array[j]比cur小 将cur 插到j后面
+                if (array[j] > cur){
+                    array[j + 1] = array[j];
+                } else {
+                    array[j + 1] = cur;
+                    flag = false;
+                    break;
+                }
+            }
+            //cur为最小 插入数组首部
+            if (flag){
+                array[0] = cur;
+            }
+        }
+    }
+
+    public static void main(String[] args){
+        //int[] array = {89, 45, 68, 90, 29, 34, 17};
+        int[] array = {12,3,2,7,4,1,8,6,9};
+        insertionSort(array);
+        System.out.println(Arrays.toString(array));
+    }
+}
