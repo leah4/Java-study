@@ -1,0 +1,27 @@
+import java.util.*;
+
+//动态规划问题
+public class MaxSum{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            int[] num = new int[n];
+            for(int i=0;i<n;i++){
+                num[i] = sc.nextInt();
+            }
+            int max = num[0];
+            int sum = num[0];
+            // 如果当前和为负数  舍掉当前的和 从下个数字开始从新计算
+            for(int i=1;i<n;i++){
+                if(sum>=0){
+                    sum += num[i];
+                }else{
+                    sum=num[i];
+                }
+                if(sum>max)max=sum;
+            }
+            System.out.println(max);
+        }
+    }
+}
