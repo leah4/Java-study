@@ -183,7 +183,7 @@ public class Memory{
         System.out.println("*    0.退出               *");
         System.out.println("***************************");
     }
-
+    
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("请输入内存大小，输入-1则默认为系统设定");
