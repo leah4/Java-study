@@ -27,7 +27,6 @@ public class LCM {
         }
         return max;
     }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("请输入两个正整数");
