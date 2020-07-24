@@ -1,4 +1,6 @@
 import java.util.Scanner;
+
+//人民币大小写转换
 public class ActivXDll{
      
     static String[] map = {"壹","贰","叁","肆","伍","陆","柒","捌","玖"};
