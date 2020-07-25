@@ -22,5 +22,43 @@ public class MinNumberInRotateArray {
         return min;
     }
     
-    //
+  //利用二分查找进行定位
+//非递减数组的旋转  可以看成是两部分  前半部分和后半部分都整体非递减 前半部分整体大于后半部分
+//定义left 指向数组最左侧  mid 为中间位置
+//如果 array[mid] < array[left] 说明mid位在数组的后半部分 即旋转的部分 需要找的最小值 是后半部分的开头
+//如果 array[mid] >= array[left] 说明mid在数组前半部分
+
+    public static int minNumberInRotateArray2(int[] array){
+        if (array == null || array.length == 0) {
+            return 0;
+        }
+        int left = 0;
+        int right = array.length - 1;
+        int mid = 0;
+        while(left < right){
+            if (right - left == 1){
+                mid = right;
+                break;
+            }
+            //非递减数组旋转可能出现这种情况： 2 3 1 2 2 2 2 即 left right 和mid 的值相等
+            //此时无法判断最小在哪部分 采用遍历这区间数组 找到最小
+            if (array[left] == array[right] && array[left] == array[mid]){
+                int result = array[left];
+                for (int i = left + 1; i < right; i++){
+                    if (array[i] < result){
+                        result = array[i];
+                    }
+                }
+                return result;
+            }
+            mid = (right + left) /2;
+            if (array[mid] >= array[left]){
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+        return array[mid];
+    }
+
 }
