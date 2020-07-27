@@ -22,6 +22,7 @@ public class BinarySearchTree {
      * @return     找到了返回对应的value，如果没找到，返回-1
      */
     public int get (int key) {
+        
         Node cur = root;
         while (cur != null) {
             if (key == cur.key) {
