@@ -52,6 +52,7 @@ public class Heaps {
     }
 
     public static void main(String[] args) {
+        
         int[] array = { -1, 8, 4, 6, 7, 2, 3, 1, 0 };
         heapify(array, array.length, 0);
         System.out.println(Arrays.toString(array));
