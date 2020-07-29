@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class BuyApples {
+
     public static int buyApples(int want) {
         // 范围限定
         if (want > 100) {
