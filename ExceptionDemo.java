@@ -1,4 +1,6 @@
+
 import java.util.Random;
+
 
 public class ExceptionDemo {
     static Random random = new Random();
@@ -7,24 +9,28 @@ public class ExceptionDemo {
             throw new RuntimeException("来自 a");
         }
     }
+    
     public static void b() {
         a();
         if (random.nextInt(6) == 1) {
             throw new RuntimeException("来自 b");
         }
     }
+    
     public static void c() {
         b();
         if (random.nextInt(6) == 2) {
             throw new RuntimeException("来自 c");
         }
     }
+    
     public static void d() {
         c();
         if (random.nextInt(6) == 3) {
             throw new RuntimeException("来自 d");
         }
     }
+    
     public static void e() {
         d();
         if (random.nextInt(6) == 4) {
