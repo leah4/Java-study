@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class MinPalindrom{
+
+//由于新生成了很多字符串  所以比较麻烦
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            String s = sc.nextLine();
+            StringBuilder sb = new StringBuilder(s);
+            //本身就是回文串
+            if (sb.reverse().toString().equals(s)){
+                System.out.println(s);
+                return;
+            }
+            //每次删掉前面的几个字母  判断后半部分是否为回文串 
+            //如果后半部分满足 则只需在字符串末尾加上前半部分的翻转 
+            for (int i = 1;i < s.length(); i++){
+                String sub = s.substring(i,s.length());
+                StringBuilder cur = new StringBuilder(sub);
+                if (cur.reverse().toString().equals(sub)){
+                    StringBuilder p = new StringBuilder(s.substring(0,i));
+                    System.out.println(s+p.reverse().toString());
+                    return;
+                }
+            }
+        }
+    }
+}
