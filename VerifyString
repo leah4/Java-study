@@ -1,0 +1,70 @@
+import java.util.*;
+
+public class VerifyString{
+    
+    public static void main(String[] args){
+        Scanner sc = new Scanner (System.in);
+        while(sc.hasNext()){
+            String s = sc.nextLine();
+            String upper = s.toUpperCase();
+            String lower = s.toLowerCase();
+            if(s.equals(upper)){
+                System.out.println("true");
+                return;
+            } else if(s.equals(lower)){
+                System.out.println("true");
+                return;
+            } else {
+                for (int i = 0; i < s.length(); i++){
+                    char c = s.charAt(i);
+                    int flag = 0; //表示判定的当前字符是大写1  小写2
+                    if(c >= 'A' && c <= 'Z'){
+                        flag = 1;
+                    } else if (c >= 'a' && c <= 'z'){
+                        flag = 2;
+                    }
+                    if(i == 0 ){
+                        if(flag != 1) {
+                            System.out.println("false");
+                            return;
+                        }
+                    } else {
+                        if(flag != 2){
+                            System.out.println("false");
+                            return;
+                        }
+                    }
+                }
+                System.out.println("true");
+            }
+        }
+    }
+    
+    //评论的一个很好地思路 两个变量记录字符串中大小写字母的个数 
+    //upper 和 lower 纯大写 和 纯小写 upper = s.length(); lower = s.length();
+    //首字母大写 则是 lower = s.length() - 1； 
+    public static void main(String[] args){
+        Scanner sc = new Scanner (System.in);
+        String s = sc.nextLine();
+        Boolean flag = flase;
+        for(char c : s.toCharArray()){
+               if(Character.isUpperCase(c)){
+                    upper++;
+               }else if(Character.isLowerCase(c)){
+                   lower++;
+               }
+        }
+        char first = s.charAt(0);
+        //首字母大写 或者纯大写
+        if(Character.isUpperCase(first)){
+            if(lower == s.length() - 1 || uppe == s.length()){
+                flag=true;
+            }
+        }else if(lower == s.length()){  //纯小写
+            flag=true;
+        }else{
+            flag=false;
+        }
+ 
+        System.out.println(flag);
+}
