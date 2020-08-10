@@ -1,0 +1,13 @@
+
+public class BigNumber{
+/**
+ * 两个大数相乘
+ */
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        BigInteger num1 = new BigInteger(sc.nextLine());
+        BigInteger num2 = new BigInteger(sc.nextLine());
+        BigInteger result = num1.multiply(num2);
+        System.out.println(result);
+    }
+}
