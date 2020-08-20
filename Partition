@@ -61,6 +61,7 @@ public class Partition {
         l5.next = l6;
 
         ListNode result = partition(l1,2);
+
         while (result != null) {
             System.out.println(result.val);
             result = result.next;
