@@ -1,0 +1,43 @@
+import java.util.*;
+public class BiliBili1 {
+    /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     * 斐波那契数列
+     * @param L int整型一维数组 整形数组
+     * @return int整型
+     */
+    public static int cal_max_common_factor (int[] L) {
+        // write code here
+        if (L.length == 0){
+            return -1;
+        }
+        if (L.length == 1){
+            return L[0];
+        }
+        if (L.length >= 2){
+            int min = L[0];
+            for (int x = 0; x < L.length; x++) {
+                if (L[x] < min){ min = L[x];}
+            }
+            for (int i = min; i > 0; i--){
+                int count = L.length;
+                for (int j = 0; j < L.length; j++) {
+                    if (L[j] % i != 0){
+                        break;
+                    }
+                    count--;
+                }
+                if (count == 0){
+                    return i;
+                }
+            }
+        }
+        return 1;
+    }
+    //全通过了  不过很麻烦
+    public static void main(String[] args) {
+        int[] L = {2,3};
+
+        System.out.println(cal_max_common_factor(L));
+    }
+}
